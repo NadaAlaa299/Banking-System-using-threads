@@ -6,12 +6,12 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public void deposit(int amount) {
+    public synchronized void deposit(int amount) {
         balance += amount;
         System.out.println(Thread.currentThread().getName() + " deposited: " + amount + ", Current Balance: " + balance);
     }
 
-    public  void withdraw(int amount) {
+    public synchronized void withdraw(int amount) {
         if (amount <= balance) {
             balance -= amount;
             System.out.println(Thread.currentThread().getName() + " withdrew: " + amount + ", Current Balance: " + balance);
@@ -20,7 +20,7 @@ public class BankAccount {
         }
     }
 
-    public void checkBalance() {
+    public synchronized void checkBalance() {
         System.out.println(Thread.currentThread().getName() + " checked balance: " + balance);
     }
 }
