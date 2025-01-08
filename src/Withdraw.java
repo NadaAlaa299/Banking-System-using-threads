@@ -1,4 +1,4 @@
-public class Withdraw {
+public class Withdraw extends Thread{
     private BankAccount account;
     private int amount;
 
